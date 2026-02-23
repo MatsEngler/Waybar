@@ -1,0 +1,253 @@
+{
+// -*- mode: jsonc -*-
+    "layer": "top", // Waybar at top layer
+   // "output":["HDMI-A-2","VGA"],
+    "position": "right", // Waybar position (top|bottom|left|right)
+    //"height": 768, // Waybar height (to be removed for auto height)
+    "width": 55, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+	    "hyprland/workspaces",
+	    "hyprland/window"
+    ],
+    "modules-center": [
+	    "clock#time",
+	    "custom/power",
+	    "clock#day",
+	    "tray"
+    ],
+    "modules-right": [
+        "battery",
+        "temperature",
+	"custom/sys_cycle",
+	"network",
+        "backlight",	
+        "pulseaudio"
+            ],
+    // Modules configuration
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "hyprland/workspaces": {
+    	"format": "{icon}",
+    	"on-click": "activate",
+    	"format-icons": {
+      		"active": " ",
+		"1": "1",
+        	"2": "2",
+        	"3": "3",
+        	"4": "4",
+        	"5": "5",
+        	"6": "6",
+        	"7": "7",
+        	"8": "8",
+        	"9": "9",
+        	"10": "10",
+        	"11": "*1",
+        	"12": "*2",
+        	"13": "*3",
+        	"14": "*4",
+        	"15": "*5",
+        	"16": "*6",
+        	"17": "*7",
+        	"18": "*8",
+        	"19": "*9",
+        	"20": "*10"
+	} 
+    },
+    "hyprland/window": {
+	    "separete-outputs": true,
+	    "format": "{title:.30}",
+	    "rotate": 270
+},
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 5,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "icon-size": 15,
+        "spacing": 10,
+        // "icons": {
+        //   "blueman": "bluetooth",
+        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        // }
+    },
+    "clock#time": {
+	"format": "{:%H\n<tt>oo</tt>\n%M\n<tt>oo</tt>\n%S}",
+	"interval": 1
+        // "timezone": "America/New_York",
+    },
+     "clock#day": {
+	"format": "{:%d\n——\n%m\n——\n%y}",
+        "tooltip-format": "<tt>{calendar}</tt>",
+	"calendar": { 
+		"mode": "year",
+		"mode-mon-col": 3,
+		"week-pos": "right",
+		"on-scroll": 1,
+		"background-color": "red",
+		"format": {
+			"months":     "<span color='#ffead3'><b>{}</b></span>",
+                        "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+			"weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                        "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                        "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+		},	
+		"actions":  {
+                    "on-click-right": "mode",
+                    "on-scroll-up": "tz_up",
+                    "on-scroll-down": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
+	}
+    },
+
+// Definição detalhada do módulo
+    "custom/sys_cycle": {
+        // Caminho para o script que criamos.
+        // Ele roda sem argumentos para exibir os dados.
+        "exec": "~/.config/waybar/scripts/sys_cycle.sh",
+
+        // Define que a saída do script será em formato JSON.
+        // Isso permite mudar o ícone, texto e tooltip dinamicamente.
+        "return-type": "json",
+
+        // Intervalo de atualização automática em segundos (ex: a cada 5s).
+        "interval": 5,
+
+        // A mágica acontece aqui:
+        // Ao clicar, rodamos o MESMO script com o argumento "toggle".
+        // O script muda o arquivo de estado e envia o sinal de refresh.
+        "on-click": "~/.config/waybar/scripts/sys_cycle.sh toggle",
+
+        // O Waybar escuta este sinal (SIGRTMIN+1).
+        // Quando o script envia "pkill -RTMIN+1 waybar", este módulo recarrega instantaneamente.
+        "signal": 1
+    },
+
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+            "good": 95
+            // "warning": 30,
+            // "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{signalStrength}% ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{essid} \n{ifname}: {ipaddr}/{cidr}\n Use: \"resolvectl status\" on terminal if any error is occurring",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "⚠",
+	"on-click": "kitty --class impala-float -e impala" 
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon}\n{format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/media": {
+        "format": "{icon} {text}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+    "custom/power": {
+        "format" : "⏻ ",
+	"on-click": "nwg-bar"
+				}
+    }
+}
+

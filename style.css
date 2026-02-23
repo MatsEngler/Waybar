@@ -1,0 +1,526 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: "FiraCode Nerd Font", "FiraCode Nerd Font Mono", monospace;
+    font-size: 10px;
+}
+
+window#waybar {
+    color: #ffffff;
+    background-color: transparent;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    padding: 0 10px;
+    
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+/* you can set a style on hover for any module like this */
+#pulseaudio:hover {
+    background-color: #a37800;
+}
+
+#workspaces {
+    margin: 10px 0px;
+    padding: 5px 0 5px 0;
+    background-image: 
+    	linear-gradient(45deg, #36454F 0%, #99A3A3 100%),
+    	linear-gradient(45deg, #B0C4DE 0%, #CCD1D4 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    border-radius: 20px;
+    font-weight: bold;
+    border: 3px solid transparent; 
+}
+
+#workspaces button {
+    padding: 0 2px;
+    margin: 0 3px;
+    color: black;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.focused {
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#mode {
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#custom-sys_cycle,
+#mpd {
+    padding: 7px 1px 7px 1px;
+    margin-right: 2px
+}
+
+#custom-sys_cycle {
+    background-color: #acb2b4;
+    color: Black;
+    border-radius: 5px;
+    border: 1px solid Brown;
+}
+
+#window {	
+    padding: 5px 0px; 
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+.modules-left {
+
+}
+
+.modules-right {
+    background-image:
+    linear-gradient(167deg, 
+        transparent 5.5%, 
+        #CCD1D4 6%, #B0C4DE 6.5%,
+#99A3A3 6.7%, #99A3A3 6.9%,
+#36454F 7.1%, #36454F 7.8%,
+#99A3A3 8.0%, #99A3A3 8.2%,
+#36454F 8.4%, #36454F 9.1%,
+#99A3A3 9.3%, #99A3A3 9.5%,
+#36454F 9.7%, #36454F 10.4%,
+#99A3A3 10.6%, #99A3A3 10.8%,
+#36454F 11.0%, #36454F 11.7%,
+#99A3A3 11.9%, #99A3A3 12.1%,
+#36454F 12.3%, #36454F 13.0%,
+#99A3A3 13.2%, #99A3A3 13.4%,
+#36454F 13.6%, #36454F 14.3%,
+#99A3A3 14.5%, #99A3A3 14.7%,
+#36454F 14.9%, #36454F 15.6%,
+#99A3A3 15.8%, #99A3A3 16.0%,
+#36454F 16.2%, #36454F 16.9%,
+#99A3A3 17.1%, #99A3A3 17.3%,
+#36454F 17.5%, #36454F 18.2%,
+#99A3A3 18.4%, #99A3A3 18.6%,
+#36454F 18.8%, #36454F 19.5%,
+#99A3A3 19.7%, #99A3A3 19.9%,
+#36454F 20.1%, #36454F 20.8%,
+#99A3A3 21.0%, #99A3A3 21.2%,
+#36454F 21.4%, #36454F 22.1%,
+#99A3A3 22.3%, #99A3A3 22.5%,
+#36454F 22.7%, #36454F 23.4%,
+#99A3A3 23.6%, #99A3A3 23.8%,
+#36454F 24.0%, #36454F 24.7%,
+#99A3A3 24.9%, #99A3A3 25.1%,
+#36454F 25.3%, #36454F 26.0%,
+#99A3A3 26.2%, #99A3A3 26.4%,
+#36454F 26.6%, #36454F 27.3%,
+#99A3A3 27.5%, #99A3A3 27.7%,
+#36454F 27.9%, #36454F 28.6%,
+#99A3A3 28.8%, #99A3A3 29.0%,
+#36454F 29.2%, #36454F 29.9%,
+#99A3A3 30.1%, #99A3A3 30.3%,
+#36454F 30.5%, #36454F 31.2%,
+#99A3A3 31.4%, #99A3A3 31.6%,
+#36454F 31.8%, #36454F 32.5%,
+#99A3A3 32.7%, #99A3A3 32.9%,
+#36454F 33.1%, #36454F 33.8%,
+#99A3A3 34.0%, #99A3A3 34.2%,
+#36454F 34.4%, #36454F 35.1%,
+#99A3A3 35.3%, #99A3A3 35.5%,
+#36454F 35.7%, #36454F 36.4%,
+#99A3A3 36.6%, #99A3A3 36.8%,
+#36454F 37.0%, #36454F 37.7%,
+#99A3A3 37.9%, #99A3A3 38.1%,
+#36454F 38.3%, #36454F 39.0%,
+#99A3A3 39.2%, #99A3A3 39.4%,
+#36454F 39.6%, #36454F 40.3%,
+#99A3A3 40.5%, #99A3A3 40.7%,
+#36454F 40.9%, #36454F 41.6%,
+#99A3A3 41.8%, #99A3A3 42.0%,
+#36454F 42.2%, #36454F 42.9%,
+#99A3A3 43.1%, #99A3A3 43.3%,
+#36454F 43.5%, #36454F 44.2%,
+#99A3A3 44.4%, #99A3A3 44.6%,
+#36454F 44.8%, #36454F 45.5%,
+#99A3A3 45.7%, #99A3A3 45.9%,
+#36454F 46.1%, #36454F 46.8%,
+#99A3A3 47.0%, #99A3A3 47.2%,
+#36454F 47.4%, #36454F 48.1%,
+#99A3A3 48.3%, #99A3A3 48.5%,
+#36454F 48.7%, #36454F 49.4%,
+#99A3A3 49.6%, #99A3A3 49.8%,
+#36454F 50.0%, #36454F 50.7%,
+#99A3A3 50.9%, #99A3A3 51.1%,
+#36454F 51.3%, #36454F 52.0%,
+#99A3A3 52.2%, #99A3A3 52.4%,
+#36454F 52.6%, #36454F 53.3%,
+#99A3A3 53.5%, #99A3A3 53.7%,
+#36454F 53.9%, #36454F 54.6%,
+#99A3A3 54.8%, #99A3A3 55.0%,
+#36454F 55.2%, #36454F 55.9%,
+#99A3A3 56.1%, #99A3A3 56.3%,
+#36454F 56.5%, #36454F 57.2%,
+#99A3A3 57.4%, #99A3A3 57.6%,
+#36454F 57.8%, #36454F 58.5%,
+#99A3A3 58.7%, #99A3A3 58.9%,
+#36454F 59.1%, #36454F 59.8%,
+#99A3A3 60.0%, #99A3A3 60.2%,
+#36454F 60.4%, #36454F 61.1%,
+#99A3A3 61.3%, #99A3A3 61.5%,
+#36454F 61.7%, #36454F 62.4%,
+#99A3A3 62.6%, #99A3A3 62.8%,
+#36454F 63.0%, #36454F 63.7%,
+#99A3A3 63.9%, #99A3A3 64.1%,
+#36454F 64.3%, #36454F 65.0%,
+#99A3A3 65.2%, #99A3A3 65.4%,
+#36454F 65.6%, #36454F 66.3%,
+#99A3A3 66.5%, #99A3A3 66.7%,
+#36454F 66.9%, #36454F 67.6%,
+#99A3A3 67.8%, #99A3A3 68.0%,
+#36454F 68.2%, #36454F 68.9%,
+#99A3A3 69.1%, #99A3A3 69.3%,
+#36454F 69.5%, #36454F 70.2%,
+#99A3A3 70.4%, #99A3A3 70.6%,
+#36454F 70.8%, #36454F 71.5%,
+#99A3A3 71.7%, #99A3A3 71.9%,
+#36454F 72.1%, #36454F 72.8%,
+#99A3A3 73.0%, #99A3A3 73.2%,
+#36454F 73.4%, #36454F 74.1%,
+#99A3A3 74.3%, #99A3A3 74.5%,
+#36454F 74.7%, #36454F 75.4%,
+#99A3A3 75.6%, #99A3A3 75.8%,
+#36454F 76.0%, #36454F 76.7%,
+#99A3A3 76.9%, #99A3A3 77.1%,
+#36454F 77.3%, #36454F 78.0%,
+#99A3A3 78.2%, #99A3A3 78.4%,
+#36454F 78.6%, #36454F 79.3%,
+#99A3A3 79.5%, #99A3A3 79.7%,
+#36454F 79.9%, #36454F 80.6%,
+#99A3A3 80.8%, #99A3A3 81.0%,
+#36454F 81.2%, #36454F 81.9%,
+#99A3A3 82.1%, #99A3A3 82.3%,
+#36454F 82.5%, #36454F 83.2%,
+#99A3A3 83.4%, #99A3A3 83.6%,
+#36454F 83.8%, #36454F 84.5%,
+#99A3A3 84.7%, #99A3A3 84.9%,
+#36454F 85.1%, #36454F 85.8%,
+#99A3A3 86.0%, #99A3A3 86.2%,
+#36454F 86.4%, #36454F 87.1%,
+#99A3A3 87.3%, #99A3A3 87.5%,
+#36454F 87.7%, #36454F 88.4%,
+#99A3A3 88.6%, #99A3A3 88.8%,
+#36454F 89.0%, #36454F 89.7%,
+#99A3A3 89.9%, #99A3A3 90.1%,
+#36454F 90.3%, #36454F 91.0%,
+#99A3A3 91.2%, #99A3A3 91.4%,
+#36454F 91.6%, #36454F 92.3%,
+#99A3A3 92.5%, #99A3A3 92.7%,
+#36454F 92.9%, #36454F 93.2%,
+#CCD1D4 93.5%, #B0C4DE 94.0%, 
+        transparent 94.5%);
+    padding: 25px 0 25px 2px;
+    border: 2px solid transparent;
+    border-image: linear-gradient(167deg,
+    transparent 0%, transparent 5.7%,
+    #CCD1D4 7%, #B0C4DE 93.7%,
+    transparent 94%, transparent 100%) 1;
+}
+
+#clock {
+    border-radius: 20px;
+    background-color: transparent;
+    font-weight: bold;
+    color: Black;
+    background-image: 
+    	linear-gradient(45deg, #36454F 0%, #99A3A3 100%),
+    	linear-gradient(45deg, #B0C4DE 0%, #B0C4DE 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    border: 3px solid transparent;
+}
+#battery {
+    background-color: #acb2b4;
+    color: Black;
+    border-radius: 5px;
+    border: 1px solid Brown; 
+}
+
+#battery.charging, #battery.plugged {
+    background-color: #acb2b4;
+    color: Black;
+    border-radius: 5px;
+    border: 1px solid Brown; 
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#power-profiles-daemon {
+    padding-right: 15px;
+}
+
+#power-profiles-daemon.performance {
+    background-color: #f53c3c;
+    color: #ffffff;
+}
+
+#power-profiles-daemon.balanced {
+    background-color: #2980b9;
+    color: #ffffff;
+}
+
+#power-profiles-daemon.power-saver {
+    background-color: #2ecc71;
+    color: #000000;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#cpu {
+    background-color: Gainsboro;
+    color: #000000;
+}
+
+#memory {
+    background-color: Gainsboro;
+    color: #000000;
+}
+
+#disk {
+    background-color: Gainsboro;
+    color: #000000;
+}
+
+#backlight {
+    background-color: #acb2b4;
+    color: Black;
+    border-radius: 5px;
+    border: 1px solid Brown;
+}
+
+#network {
+    background-color: #acb2b4;
+    color: Black;
+    border-radius: 5px;
+    border: 1px solid Brown;
+}
+
+#network.disconnected {
+    background-color: #f53c3c;
+}
+
+#pulseaudio {
+    background-color: #acb2b4;
+    color: Black;
+    border-radius: 5px;
+    border: 1px solid Brown;
+}
+
+#pulseaudio.muted {
+    background-color: #90b1b1;
+    color: #2a5c45;
+}
+
+#wireplumber {
+    background-color: #fff0f5;
+    color: #000000;
+}
+
+#wireplumber.muted {
+    background-color: #f53c3c;
+}
+
+#custom-media {
+    background-color: #66cc99;
+    color: #2a5c45;
+    min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+    background-color: #66cc99;
+}
+
+#custom-media.custom-vlc {
+    background-color: #ffa000;
+}
+
+#temperature {
+    background-color: #acb2b4;
+    color: Black;
+    border-radius: 5px;
+    border: 1px solid Brown;
+    }
+
+#temperature.critical {
+    background-color: #eb4d4b;
+}
+
+#tray {
+    background-color: #2980b9;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+#idle_inhibitor {
+    background-color: #2d3436;
+}
+
+#idle_inhibitor.activated {
+    background-color: #ecf0f1;
+    color: #2d3436;
+}
+
+#mpd {
+    background-color: #66cc99;
+    color: #2a5c45;
+}
+
+#mpd.disconnected {
+    background-color: #f53c3c;
+}
+
+#mpd.stopped {
+    background-color: #90b1b1;
+}
+
+#mpd.paused {
+    background-color: #51a37a;
+}
+
+#language {
+    background: #00b093;
+    color: #740864;
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state {
+    background: #97e1ad;
+    color: #000000;
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad.empty {
+	background-color: transparent;
+}
+
+#privacy {
+    padding: 0;
+}
+
+#privacy-item {
+    padding: 0 5px;
+    color: white;
+}
+
+#privacy-item.screenshare {
+    background-color: #cf5700;
+}
+
+#privacy-item.audio-in {
+    background-color: #1ca000;
+}
+
+#privacy-item.audio-out {
+    background-color: #0069d4;
+}
+
