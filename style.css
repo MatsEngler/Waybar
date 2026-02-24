@@ -299,7 +299,7 @@ button:hover {
     border: 3px solid transparent;
 }
 #battery {
-    background-color: #acb2b4;
+    background-color: rgba(26, 27, 38, 0.85);
     color: Black;
     border-radius: 5px;
     border: 1px solid Brown; 
