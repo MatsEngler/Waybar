@@ -112,11 +112,11 @@ button:hover {
     margin-right: 2px
 }
 
-#custom-sys_cycle {
-    background-color: #acb2b4;
-    color: Black;
-    border-radius: 5px;
-    border: 1px solid Brown;
+#custom-sys_cycle, #network, #temperature, #backlight, #pulseaudio, #battery  {
+    background-color: rgba(26, 27, 38, 0.85);
+    color: #C0B7A1;
+    border-radius: 0px;
+    border: 1px solid #4A433A; 
 }
 
 #window {	
@@ -298,19 +298,19 @@ button:hover {
     background-clip: padding-box, border-box;
     border: 3px solid transparent;
 }
-#battery {
-    background-color: #acb2b4;
-    color: Black;
-    border-radius: 5px;
-    border: 1px solid Brown; 
-}
+/*#battery {
+    background-color: rgba(26, 27, 38, 0.85);
+    color: #C0B7A1;
+    border-radius: 0px;
+    border: 1px solid #4A433A; 
+}*/
 
-#battery.charging, #battery.plugged {
-    background-color: #acb2b4;
-    color: Black;
-    border-radius: 5px;
-    border: 1px solid Brown; 
-}
+/*#battery.charging, #battery.plugged {
+    background-color: rgba(26, 27, 38, 0.85);
+    color: #C0B7A1;
+    border-radius: 0px;
+    border: 1px solid #4A433A; 
+}*/
 
 @keyframes blink {
     to {
@@ -368,30 +368,30 @@ label:focus {
     color: #000000;
 }
 
-#backlight {
-    background-color: #acb2b4;
-    color: Black;
-    border-radius: 5px;
-    border: 1px solid Brown;
-}
+/*#backlight {
+    background-color: rgba(26, 27, 38, 0.85);
+    color: #C0B7A1;
+    border-radius: 0px;
+    border: 1px solid #4A433A; 
+}*/
 
-#network {
-    background-color: #acb2b4;
-    color: Black;
-    border-radius: 5px;
-    border: 1px solid Brown;
-}
+/*#network {
+    background-color: rgba(26, 27, 38, 0.85);
+    color: #C0B7A1;
+    border-radius: 0px;
+    border: 1px solid #4A433A; 
+}*/
 
 #network.disconnected {
     background-color: #f53c3c;
 }
 
-#pulseaudio {
-    background-color: #acb2b4;
-    color: Black;
-    border-radius: 5px;
-    border: 1px solid Brown;
-}
+/*#pulseaudio {
+    background-color: rgba(26, 27, 38, 0.85);
+    color: #C0B7A1;
+    border-radius: 0px;
+    border: 1px solid #4A433A; 
+}*/
 
 #pulseaudio.muted {
     background-color: #90b1b1;
@@ -421,12 +421,12 @@ label:focus {
     background-color: #ffa000;
 }
 
-#temperature {
-    background-color: #acb2b4;
-    color: Black;
-    border-radius: 5px;
-    border: 1px solid Brown;
-    }
+/*#temperature {
+    background-color: rgba(26, 27, 38, 0.85);
+    color: #C0B7A1;
+    border-radius: 0px;
+    border: 1px solid #4A433A; 
+}*/
 
 #temperature.critical {
     background-color: #eb4d4b;
