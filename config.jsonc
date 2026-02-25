@@ -8,14 +8,14 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-	    "hyprland/workspaces",
-	    "hyprland/window"
-    ],
-    "modules-center": [
 	    "clock#time",
 	    "custom/power",
 	    "clock#day",
-	    "tray"
+	    "tray"    
+    ],
+    "modules-center": [
+	    "hyprland/workspaces",
+	    "hyprland/window"
     ],
     "modules-right": [
         "battery",
@@ -64,7 +64,7 @@
     },
     "hyprland/window": {
 	    "separete-outputs": true,
-	    "format": "{title:.30}",
+	    "format": "{title:.15}",
 	    "rotate": 270
 },
     "mpd": {
