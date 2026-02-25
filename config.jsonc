@@ -5,7 +5,7 @@
     "position": "right", // Waybar position (top|bottom|left|right)
     //"height": 768, // Waybar height (to be removed for auto height)
     "width": 55, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
+    "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
 	    "clock#time",
@@ -101,7 +101,7 @@
         }
     },
     "tray": {
-        "icon-size": 15,
+        "icon-size": 12,
         "spacing": 10,
         // "icons": {
         //   "blueman": "bluetooth",

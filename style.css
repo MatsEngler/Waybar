@@ -132,6 +132,11 @@ button:hover {
    color: #D9D0B9;
 }
 
+#clock.day {
+   margin-bottom: 0px;
+   border-bottom: 0px solid transparent;
+}
+
 
 #window {	
     padding: 5px 0px; 
@@ -291,6 +296,7 @@ button:hover {
 #8B8272 93.5%, #8B8272 94.0%, 
         transparent 94.5%);
     padding: 25px 1px 25px 1px;
+    margin-bottom: 30px;
     border: 2px solid transparent;
     border-image: linear-gradient(167deg,
     transparent 0%, transparent 5.7%,
@@ -602,7 +608,15 @@ label:focus {
 }
 
 #tray {
-    background-color: #2980b9;
+    background-color: #1A1816;
+    border-left: 2px solid #5E7D7E;
+    border-top: 3px solid #4A433A;
+}
+
+#tray > button {
+    border: none;
+    margin: 0;
+    padding: 0 2px;
 }
 
 #tray > .passive {
