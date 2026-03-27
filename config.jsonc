@@ -19,6 +19,7 @@
     ],
     "modules-right": [
         "battery",
+	"custom/power_waybar",
         "temperature",
 	"custom/sys_cycle",
 	"network",
@@ -114,7 +115,7 @@
         // "timezone": "America/New_York",
     },
      "clock#day": {
-	"format": "{:%d\n——\n%m\n——\n%y}",
+	"format": " {:%d\n————\n %m\n————\n %y}",
         "tooltip-format": "<tt>{calendar}</tt>",
 	"calendar": { 
 		"mode": "year",
@@ -162,6 +163,17 @@
         "signal": 1
     },
 
+    "custom/power_waybar": {
+	 "format": "{}",
+   	 "return-type": "json",
+   	 "exec": "~/.config/waybar/scripts/power-waybar.sh",
+   	 "interval": 5, // Atualiza a cada 5 segundos
+   	 "on-click": "~/.local/bin/scripts/power-control.sh performance",
+   	 "on-click-right": "~/.local/bin/scripts/power-control.sh power-saver",
+   	 "on-click-middle": "~/.local/bin/scripts/power-control.sh balanced",
+   	 "tooltip": true
+    },
+
     "temperature": {
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
@@ -177,18 +189,19 @@
     },
     "battery": {
         "states": {
-            "good": 95
-            // "warning": 30,
-            // "critical": 15
+            "good": 95,
+            "warning": 30,
+            "critical": 15
         },
         "format": "{capacity}% {icon}",
         "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
+	"tooltip-format": "Use 'supergfxctl' -h"
     },
     "battery#bat2": {
         "bat": "BAT2"
@@ -245,8 +258,8 @@
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/power": {
-        "format" : "⏻ ",
-	"on-click": "nwg-bar"
+        "format" : "⏻",
+	"on-click": "~/.config/hypr/scripts/power-menu.sh"
 				}
     }
 }
